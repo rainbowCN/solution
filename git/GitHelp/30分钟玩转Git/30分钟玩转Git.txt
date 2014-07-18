@@ -1,0 +1,193 @@
+理解的概念
+==========
+config
+------
+1、/etc/gitconfig 文件：系统中对所有用户都普遍适用的配置。若使用 git config 时用 --system 选项，读写的就是这个文件。
+2、~/.gitconfig 文件：用户目录下的配置文件只适用于该用户。若使用 git config 时用 --global 选项，读写的就是这个文件。
+3、当前项目的 Git 目录中的配置文件（也就是工作目录中的 .git/config 文件）：这里的配置仅仅针对当前项目有效。每一个级别的配置都会覆盖上层的相同配置，所以 .git/config 里的配置会覆盖 /etc/gitconfig 中的同名变量。
+
+文件的3种状态
+-------------
+1、untracked，未被跟踪的。git存在remote和local repository2个概念。在工作目录新建的文件以及clone下来的文件，对于local repository来说都是untracked。
+2、跟踪后的文件，又有modified、unstaged两种状态。
+3、对于纳入git管理的文件，便会出现查看修改后没有暂存部分&已暂存与commit snapshort之间的差别的需求。
+   - git diff
+   - git diff --cached  
+ 
+
+工程配置
+========
+Step1：
+在Git上创建一个repository，得到远程库URL。(https://github.com/rainbowCN/solution.git)
+
+
+Step2:
+在本地clone下来
+git clone https://github.com/rainbowCN/solution.git
+
+
+Step3:
+进入工作目录，查看远程库状态。
+cd solution
+git remote -v
+
+Step4:
+进入工作目录，全局变量配置&文件状态。
+cd solution
+git config -l
+git status
+
+文件操作(rainbowCN,add,commit,push)
+========
+Step5:
+#修改.gitignore，查看tracked&modified&unStaged状态的文件
+git status
+
+Step6:
+staged&commit，快照到本地库。
+git status
+git add .gitignore
+git commit
+
+Step7:
+sync远程服务器
+git status
+git push origin master
+
+文件操作(jamesCN,pull)
+========
+Step8:
+
+#查看远程库
+git remote -v
+
+#查看某个远程库详细信息
+git remote show solution
+
+#增加、修改、删除远程库名称
+git remote add solution https://github.com/rainbowCN/solution.git
+git remote rm solution
+
+#jamesCN 执行clone操作后，rainbowCN再次提交更新。james获取服务器最新的code。
+git pull solution
+
+查看记录(jamesCN/rainbowCN,log)
+========
+#查看提交记录，log有很强大的参数，使用GUI是另一探索。
+git log -p -2
+
+
+创建分支操作(rainbowCN,branch/checkout)
+========
+#rainbowCN创建另一个分支english用来学习英语语法
+git branch english
+
+#当有多分支的情况，查看当前所在分支
+git branch
+
+#切换到某个分支
+git checkout english
+
+#快捷方式
+git checkout -b english
+
+#推送分支内容
+git push origin english
+
+
+获取remote update数据(jamesCN,pull)
+========
+#jamesCN获取并合并origin最新分支的内容
+git pull origin
+
+
+新的一天(jamesCN)
+========
+#查看本地文件状况
+git status
+git diff
+git diff --cached
+
+#查看远程服务器状况
+git remote show origin
+
+
+冲突监测(rainbowCN)
+========
+#Auto-merging plan/plan.txt,Merge made by 'recursive' strategy.
+vi
+git commit -a
+git push origin master
+
+#<<<<<<< HEAD
+#...
+#=======
+#...
+#>>>>>>> iss53
+#解决冲突
+
+git commit -a
+git push 
+
+#2个author修改同一个文件，必然会造成冲突。修改一个文件之前，先pull再修改，可减少冲突发生的几率。
+
+查看分支信息(rainbowCN)
+============
+git branch
+git branch -v
+git branch --merged
+git branch --no--merged
+
+查看并push分支信息(jamesCN)
+============
+git fetch origin
+git checkout english
+git push origin english
+
+撤销unstaged的修改(rainbowCN)
+============
+git checkout -- plan/plan.txt
+
+
+删除(rainbowCN)
+============
+#unTracked，随便删除与Git无关
+#tracked的文件实际上是删除的staged的文件，rm会同时删除物理文件！
+git rm plan.txt
+
+#plan删除前，modified&tracked(add)。则需要-f
+git rm plan.txt -f
+
+#删除且保留在当前文件目录
+git rm --cached plan.txt
+
+
+重命名文件(rainbowCN)
+============
+#$ git rm plan.txt -> $ git add plan
+git mv plan.txt plan.md
+
+
+####CentOS创建账号管理项目(jamesCN)####
+git config -l
+#没有配置ssh和在rainbowCN上创建账号？
+#connect to host github.com port 22: Connection timed out
+#account setting
+
+ssh-keygen -C 'x.james.yu@gmail.com' -t rsa
+git clone git@github.com:rainbowCN/solution.git
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
