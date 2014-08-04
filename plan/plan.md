@@ -7,6 +7,7 @@
   - [1.6 遗留问题](#1.6) 
      
 - [2014-08 8月工作计划](#2014-08)
+  - [08-02 第2个周(08/04-08/10)](#08-02) 
   - [08-01 第1个周(07/28-08/03)](#08-01) 
        
 - [2014-07 7月工作计划](#2014-07)
@@ -144,14 +145,13 @@
 2014-08 August
 =============
 ***
-
-08-01 weekly plan(2014-08-01th)
+08-02 weekly plan(2014-08-02th)
 -------------------------------
 
 ####A项目开发(git)####
 1. BMS
-		1-1 BMS Bower 集成【】
-		1-2 BMS CI集成【】
+		1-1 BMS CI集成【】
+		1-2 BMS Privilege Design【】
     
 2. Soul
 		3-1 observer
@@ -163,7 +163,7 @@
 3. Git学习
 4. Python学习
 
-###2014-07-30(ZZ)###
+###2014-08-04(ZZ)###
 * 保持乐观向上的情绪，不把工作和不愉快带回家。
 * 凡事靠自己，不抱怨任何事情。
 * 停下来思考，才是进步的本质。
@@ -175,13 +175,13 @@
 	- 1-0 ADC
 			1-0-1 学习@模板&navigation
 			1-0-2 后台api模板创建
-			1-0-3 accessToken处理【】
-			1-0-4 interface接口【】
+			1-0-3 更新&同步ADC【】
+			1-0-4 API Doc【】
 
    - 1-2 技术学习
    
 			1-2-0 BMS
-    			1-2-0-1 思考Authority&permission&privilege map设计
+    			1-2-0-1 思考Privilege map Desgin(Desing)
    
 			1-2-1 Git(搭建soluction，通过rainbowCN&jamesCN来学习git，写作《30分钟玩转Git》。)
 				1-2-1-1 创建&合并分支
@@ -190,21 +190,13 @@
 
 			1-2-2 CI[Travis CI](T->node)
 				1-2-2-1 服务器命令控制
-				
-			1-2-3 Package Manager
-			    1-2-3-1 使用bower re-fact BMS【】
-							
-			
-   - 1-3 Python
-   
-			1-3-1 基本语法
             
 2. JS源码学习
 
 	- 2-1 类的继承研究
-			2-1-1 backbone源码Model实现。(B1)
-			2-1-2 backbone源码Sync实现。(B1)
-			2-1-3 backbone源码View实现。(B1)
+			2-1-1 backbone源码Model实现。
+			2-1-2 backbone源码Sync实现。
+			2-1-3 backbone源码View实现。
 			
 	- 2-2 marionette
 			2-2-1 CollectionView&ItemView的数据绑定。
@@ -232,6 +224,35 @@
 
 ####乱七八糟的事####
 1. 自考报名查询【】
+
+
+08-01 weekly plan(2014-08-01th)
+-------------------------------
+
+####A项目开发(git)####
+1. BMS
+		1-1 BMS Bower 集成【ok】
+
+####B技术学习####
+1. backbonejs源码学习
+2. less源码学习
+3. Git学习
+4. CI学习
+
+###2014-07-30(ZZ)###
+
+####工作####
+1. Work
+
+	- 1-0 ADC
+	
+			1-0-3 accessToken处理【ok】
+			1-0-4 interface接口【ok】
+
+   - 1-2 技术学习
+				
+			1-2-3 Package Manager
+			    1-2-3-1 使用bower re-fact BMS【ok】
 
 
 ###2014-07-29(ZZ)###
