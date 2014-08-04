@@ -2,57 +2,42 @@
 ==========
 config
 ------
-1、/etc/gitconfig 文件：系统中对所有用户都普遍适用的配置。若使用 git config 时用 --system 选项，读写的就是这个文件。
-2、~/.gitconfig 文件：用户目录下的配置文件只适用于该用户。若使用 git config 时用 --global 选项，读写的就是这个文件。
-3、当前项目的 Git 目录中的配置文件（也就是工作目录中的 .git/config 文件）：这里的配置仅仅针对当前项目有效。每一个级别的配置都会覆盖上层的相同配置，所以 .git/config 里的配置会覆盖 /etc/gitconfig 中的同名变量。
 
 文件的3种状态
 -------------
-1、untracked，未被跟踪的。git存在remote和local repository2个概念。在工作目录新建的文件以及clone下来的文件，对于local repository来说都是untracked。
-2、跟踪后的文件，又有modified、unstaged两种状态。
-3、对于纳入git管理的文件，便会出现查看修改后没有暂存部分&已暂存与commit snapshort之间的差别的需求。
-   - git diff
-   - git diff --cached  
- 
+
 
 工程配置
 ========
 Step1：
-在Git上创建一个repository，得到远程库URL。(https://github.com/rainbowCN/solution.git)
 
 
 Step2:
-在本地clone下来
-git clone https://github.com/rainbowCN/solution.git
 
 
 Step3:
-进入工作目录，查看远程库状态。
-cd solution
-git remote -v
+
 
 Step4:
-进入工作目录，全局变量配置&文件状态。
-cd solution
-git config -l
-git status
 
-文件操作(rainbowCN,add,commit,push)
+
+包(安装)
+=======
+bower install bootstrap -S
+
+
+包(查看)
 ========
-Step5:
-#修改.gitignore，查看tracked&modified&unStaged状态的文件
-git status
+#查看包的所有版本信息
+bower info jquery
 
-Step6:
-staged&commit，快照到本地库。
-git status
-git add .gitignore
-git commit
+#查看包的依赖情况
+$ bower list
 
-Step7:
-sync远程服务器
-git status
-git push origin master
+#查看包的资源
+$ bower list --paths 
+
+
 
 文件操作(jamesCN,pull)
 ========
@@ -212,24 +197,6 @@ git reset HEAD plan.txt
 git commit -m 'initial commit'
 git add forgotten_file
 git commit --amend
-
-标签操作
-========
-#打标签
-git tag v1.0.0
-
-#添加注解标签
-git tag -a v1.4 -m "my version 1.4"
-
-#查看注解
-git tag -l
-
-#分享标签
-git push origin v0.1.0	 
-
-
-
-
 
 
 

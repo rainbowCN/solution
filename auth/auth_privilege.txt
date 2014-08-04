@@ -1,0 +1,20 @@
+Auth(Common Web App)
+====================
+API
+[post]login (username+password)
+[get]logout
+[get]touch
+
+
+Auth(RESTful)
+====================
+API
+[post]login (username+password) -> server auth
+                  (accesstoken) <-
+                                -> accesstoken                           
+[get]logout
+[get]touch
+
+
+
+
